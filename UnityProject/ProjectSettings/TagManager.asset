@@ -44,3 +44,6 @@ TagManager:
   - name: sea
     uniqueID: 4187516415
     locked: 0
+  - name: coconut
+    uniqueID: 1728579503
+    locked: 0
