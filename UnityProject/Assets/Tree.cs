@@ -35,7 +35,15 @@ public class Tree : MonoBehaviour
     {
         if (Input.GetKeyDown("space") && playerInFront)
         {
+
             Debug.Log("player swaying the tree");
+            GameObject fruit = GameObject.Find("Fruit");
+            if (fruit == null)
+            {
+                return;
+
+            }
+            fruit.SendMessage("Drop", 0.5f, SendMessageOptions.RequireReceiver);
         }
     }
 }
