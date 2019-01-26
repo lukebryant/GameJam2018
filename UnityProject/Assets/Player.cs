@@ -12,11 +12,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private Transform parentTransform;
+    Animator animator;
     private bool walking = false;
     private bool inOcean = false;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         parentTransform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
@@ -46,18 +48,21 @@ public class Player : MonoBehaviour
       
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            animator.SetTrigger("Walk");
             Vector3 oldVec3 = parentTransform.localScale;
             parentTransform.localScale = new Vector3(-Mathf.Abs(oldVec3.x), oldVec3.y, oldVec3.z);
             if (speed <= 3) speed++;
         }
         else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            animator.SetTrigger("Walk");
             Vector3 oldVec3 = parentTransform.localScale;
             parentTransform.localScale = new Vector3(Mathf.Abs(oldVec3.x), oldVec3.y, oldVec3.z);
             if (speed >= -3) speed--;
         }
         else
         {
+            animator.SetTrigger("Idle");
             moveVelocity = 0;
             int sign = speed >= 0 ? 1 : -1;
             speed = (int)Mathf.Max(Mathf.Abs((float)speed) - friction, 0) * sign;
