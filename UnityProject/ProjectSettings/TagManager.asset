@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: sky
+    uniqueID: 1220238061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
