@@ -7,18 +7,20 @@ public class Player : MonoBehaviour
     public float friction = 1;
 
     float moveVelocity;
-    float speed;
+    int speed;
+    bool goingRight = false;
+    bool goingLeft = false;
 
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        speed = 0;
     }
 
     void Update() {
-
-
+      
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             if (speed <= 3) speed++;
@@ -31,10 +33,12 @@ public class Player : MonoBehaviour
         }
         else
         {
+            moveVelocity = 0;
             int sign = speed >= 0 ? 1 : -1;
-            speed = Mathf.Max(Mathf.Abs(speed) - friction, 0) * sign;
+            speed = (int)Mathf.Max(Mathf.Abs((float)speed) - friction, 0) * sign;
             moveVelocity = speed;
-         }
+         
+    }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
     }
