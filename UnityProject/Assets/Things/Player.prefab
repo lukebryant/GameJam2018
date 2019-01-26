@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4860371272590483704}
   - component: {fileID: 4860371272590483707}
   - component: {fileID: 4860371272590483706}
+  - component: {fileID: 1794191729}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5952791250052167984}
-  m_LocalRotation: {x: 0, y: 0, z: 0.081064686, w: 0.99670887}
+  m_LocalRotation: {x: 0, y: 0, z: 0.08106876, w: 0.9967085}
   m_LocalPosition: {x: -0.061381716, y: -0.85715276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.3}
 --- !u!50 &1794191732
 Rigidbody2D:
   serializedVersion: 4
@@ -85,7 +86,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.25
 --- !u!212 &4860371272590483707
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -120,8 +121,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1728579503
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3a1b024f2683947308ff8151f017cb84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -153,3 +154,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &1794191729
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952791250052167984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16

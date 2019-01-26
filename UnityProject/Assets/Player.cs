@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
             if (!inOcean)
             {
                 walking = true;
-                audio.Play();
+                footSteps.Play();
                 Debug.Log("walking");
             }
 
