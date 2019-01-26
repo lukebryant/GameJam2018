@@ -6,13 +6,24 @@ public class FruitController : MonoBehaviour
 {
     Rigidbody2D body;
     private bool inOcean = false;
+    private long frame = 0;
+    private long lastWaveFrame = 0;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.collider.name == "Ocean")
+        if (col.name == "Ocean")
         {
             Debug.Log("fruit in ocean");
             inOcean = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.name == "Ocean")
+        {
+            Debug.Log("fruit out of ocean");
+            inOcean = false;
         }
     }
     public void Drop()
@@ -30,14 +41,19 @@ public class FruitController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (inOcean)
+        frame++;
+
+        if (inOcean && frame > lastWaveFrame + 90)
         {
+            lastWaveFrame = frame;
             float r = Random.Range(0, 1);
-            if (r < 0.5) {
+            if (r < 0.40) {
                 body.AddForce(new Vector2(-5, 0));
-            }else
+            }
+            else
+            {
+                body.AddForce(new Vector2(5, 0));
+            }
         }
-        */
     }
 }
