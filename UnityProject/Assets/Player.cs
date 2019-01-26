@@ -4,8 +4,10 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
 
-    public float speed;
+    public float friction = 1;
+
     float moveVelocity;
+    float speed;
 
     private Rigidbody2D rb;
 
@@ -17,17 +19,22 @@ public class Player : MonoBehaviour
     void Update() {
 
 
-        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            if(speed <=3) speed++;
+            if (speed <= 3) speed++;
             moveVelocity = speed;
         }
-
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            if(speed >=-3) speed--;
+            if (speed >= -3) speed--;
             moveVelocity = speed;
         }
+        else
+        {
+            int sign = speed >= 0 ? 1 : -1;
+            speed = Mathf.Max(Mathf.Abs(speed) - friction, 0) * sign;
+            moveVelocity = speed;
+         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
     }
