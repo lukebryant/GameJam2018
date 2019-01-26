@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class DoorController : MonoBehaviour
 {
     private bool playerInFront = false;
 
@@ -10,17 +10,26 @@ public class Tree : MonoBehaviour
     {
         if (collision.name == "Player")
         {
-            Debug.Log("player in front of tree");
+            Debug.Log("player in front");
             playerInFront = true;
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.name == "Player"){
-            Debug.Log("player not in front of tree");
+        if (collision.name == "Player")
+        {
+            Debug.Log("player left");
             playerInFront = false;
+        }
+    }
 
+    public void OnTriggeStay2D(Collider2D collision)
+    {
+        Debug.Log("stay");
+        if (collision.name == "Player")
+        {
+            Debug.Log("player in front of door");
         }
     }
 
@@ -35,15 +44,7 @@ public class Tree : MonoBehaviour
     {
         if (Input.GetKeyDown("space") && playerInFront)
         {
-
-            Debug.Log("player swaying the tree");
-            GameObject fruit = GameObject.Find("Fruit");
-            if (fruit == null)
-            {
-                return;
-
-            }
-            fruit.SendMessage("Drop", 0.5f, SendMessageOptions.RequireReceiver);
+            Debug.Log("player opening door");
         }
     }
 }
