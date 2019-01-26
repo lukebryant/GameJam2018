@@ -12,11 +12,31 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool walking = false;
+    private bool inOcean = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         speed = 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Ocean")
+        {
+            inOcean = true;
+            Debug.Log("in ocean");
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.name == "Ocean")
+        {
+            inOcean = false;
+            Debug.Log("on land");
+        }
     }
 
     void Update() {
@@ -35,15 +55,18 @@ public class Player : MonoBehaviour
             int sign = speed >= 0 ? 1 : -1;
             speed = (int)Mathf.Max(Mathf.Abs((float)speed) - friction, 0) * sign;
     }
-        moveVelocity = speed * 0.5f;
+        moveVelocity = speed * 0.35f;
 if (speed != 0 && !walking)
         {
-            walking = true;
-            audio.Play();
-            Debug.Log("walking");
+            if (!inOcean)
+            {
+                walking = true;
+                audio.Play();
+                Debug.Log("walking");
+            }
 
         }
-        else if (speed == 0)
+        else if (speed == 0 || inOcean)
         {
             audio.Stop();
             walking = false;
