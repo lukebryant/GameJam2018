@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
             int sign = speed >= 0 ? 1 : -1;
             speed = (int)Mathf.Max(Mathf.Abs((float)speed) - friction, 0) * sign;
         }
-        moveVelocity = speed * 0.35f;
+        moveVelocity = speed * 0.25f;
         if (speed != 0 && !walking)
         {
             if (!inOcean)
