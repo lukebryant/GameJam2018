@@ -12,6 +12,8 @@ public class DoorController : MonoBehaviour
     private BoxCollider2D cabinLeftSideCollider;
     private BoxCollider2D cabinRightSideCollider;
     public Player player;
+    public AudioSource doorCreak;
+
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -47,8 +49,9 @@ public class DoorController : MonoBehaviour
     void Update()
     {
         if ((Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow))
-        && playerInFront)
+        && playerInFront && !player.IsInCabin())
         {
+            doorCreak.Play();
             enterDoor();
         }
         if ((Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow)) && playerInFront && inHouse)

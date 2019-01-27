@@ -453,6 +453,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1908849842 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2402276401313034122, guid: 2cdae2f047a064b34826f965e387691d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4340799083189151012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962322143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7607619215849122604, guid: 7ac039f8b8ffb491f9ba1f66ddae1b92,
@@ -472,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  doorCreak: {fileID: 1908849842}
 --- !u!1 &2083245650
 GameObject:
   m_ObjectHideFlags: 0
