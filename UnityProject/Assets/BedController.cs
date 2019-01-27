@@ -34,7 +34,8 @@ public class BedController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && playerInFront)
+        if (Input.GetKeyDown("space") && playerInFront && player.IsInCabin()
+        && !player.sleeping)
         {
             player.sleep();
         }

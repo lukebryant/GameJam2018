@@ -46,6 +46,10 @@ public class Player : MonoBehaviour
     {
         inCabin = false;
     }
+    public bool IsInCabin()
+    {
+        return inCabin;
+    }
     public void sleep()
     {
         Debug.Log("sleeping");
