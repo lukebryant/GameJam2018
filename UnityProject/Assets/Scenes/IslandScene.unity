@@ -1613,6 +1613,12 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7607619215042645246, guid: 7ac039f8b8ffb491f9ba1f66ddae1b92,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b26b29700de5441f8a185477efe7a411,
+        type: 3}
     - target: {fileID: 7607619216188553164, guid: 7ac039f8b8ffb491f9ba1f66ddae1b92,
         type: 3}
       propertyPath: m_LocalPosition.z
