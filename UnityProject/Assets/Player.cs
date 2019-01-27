@@ -74,8 +74,11 @@ public class Player : MonoBehaviour
 
         if (sleeping)
         {
-            if (Input.GetKey(KeyCode.L)) {
+            if (Input.GetKey(KeyCode.W)) {
+
+                Debug.Log("waking up");
                 parentTransform.localPosition = preSleepPosition;
+                parentTransform.localEulerAngles = new Vector3(0, 0, 0);
                 sleeping = false;
             }
             return;
@@ -104,7 +107,7 @@ public class Player : MonoBehaviour
         moveVelocity = speed * 0.25f;
         if (speed != 0 && !walking)
         {
-            if (!inOcean)
+            if (!inOcean && !sleeping)
             {
                 walking = true;
                 footSteps.Play();
