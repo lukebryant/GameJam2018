@@ -13,6 +13,7 @@ public class DoorController : MonoBehaviour
     private BoxCollider2D cabinRightSideCollider;
     public Player player;
     public AudioSource doorCreak;
+    public AudioSource doorClose;
 
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +57,7 @@ public class DoorController : MonoBehaviour
         }
         if ((Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow)) && playerInFront && inHouse)
         {
+            doorClose.Play();
             exitDoor();
         }
     }
