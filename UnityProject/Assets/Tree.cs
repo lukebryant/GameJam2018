@@ -33,7 +33,7 @@ public class Tree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && playerInFront)
+        if ((Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow)) && playerInFront)
         {
 
             Debug.Log("player swaying the tree");

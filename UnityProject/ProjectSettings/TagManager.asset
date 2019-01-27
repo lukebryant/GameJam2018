@@ -38,8 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: backstage
+    uniqueID: 728812577
+    locked: 0
   - name: sky
     uniqueID: 1220238061
+    locked: 0
   - name: island
     uniqueID: 3682237805
     locked: 0
