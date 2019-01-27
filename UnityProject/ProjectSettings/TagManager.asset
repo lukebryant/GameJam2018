@@ -40,6 +40,17 @@ TagManager:
   m_SortingLayers:
   - name: sky
     uniqueID: 1220238061
+  - name: island
+    uniqueID: 3682237805
+    locked: 0
+  - name: cabin back
+    uniqueID: 1324618831
+    locked: 0
+  - name: cabin middle
+    uniqueID: 2405507717
+    locked: 0
+  - name: cabin front
+    uniqueID: 1664982453
     locked: 0
   - name: Default
     uniqueID: 0

@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     public void sleep()
     {
         Debug.Log("sleeping");
+        animator.SetTrigger("Idle");
         preSleepPosition = parentTransform.position;
         parentTransform.position = new Vector3(-1.1f, -0.85f, 0);
         Vector3 oldVec3 = parentTransform.localScale;
@@ -61,8 +62,10 @@ public class Player : MonoBehaviour
 
         if (sleeping)
         {
+            animator.SetTrigger("Idle");
             if (Input.GetKey(KeyCode.L)) {
                 parentTransform.localPosition = preSleepPosition;
+                parentTransform.localEulerAngles = new Vector3(0, 0, 0);
                 sleeping = false;
             }
             return;
