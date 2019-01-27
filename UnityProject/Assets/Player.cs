@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     Animator animator;
     private bool walking = false;
     private bool inOcean = false;
+    private bool inCabin = false;
 
     void Start()
     {
@@ -37,6 +38,18 @@ public class Player : MonoBehaviour
 
     }
 
+    public void EnterCabin()
+    {
+        inCabin = true;
+    }
+    public void ExitCabin()
+    {
+        inCabin = false;
+    }
+    public bool IsInCabin()
+    {
+        return inCabin;
+    }
     public void sleep()
     {
         Debug.Log("sleeping");
@@ -63,7 +76,8 @@ public class Player : MonoBehaviour
         if (sleeping)
         {
             animator.SetTrigger("Idle");
-            if (Input.GetKey(KeyCode.L)) {
+            if (Input.GetKey(KeyCode.W)) {
+                Debug.Log("waking up");
                 parentTransform.localPosition = preSleepPosition;
                 parentTransform.localEulerAngles = new Vector3(0, 0, 0);
                 sleeping = false;
@@ -94,7 +108,7 @@ public class Player : MonoBehaviour
         moveVelocity = speed * 0.25f;
         if (speed != 0 && !walking)
         {
-            if (!inOcean)
+            if (!inOcean && !sleeping)
             {
                 walking = true;
                 footSteps.Play();

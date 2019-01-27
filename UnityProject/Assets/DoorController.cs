@@ -9,6 +9,7 @@ public class DoorController : MonoBehaviour
     private SpriteRenderer cabinFrontSpriteRenderer;
     private BoxCollider2D cabinLeftSideCollider;
     private BoxCollider2D cabinRightSideCollider;
+    public Player player;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,6 +37,7 @@ public class DoorController : MonoBehaviour
         cabinRightSideCollider = GameObject.Find("/Cabin/RightSide").GetComponent<BoxCollider2D>();
         cabinLeftSideCollider.enabled = false;
         cabinRightSideCollider.enabled = false;
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -60,6 +62,8 @@ public class DoorController : MonoBehaviour
         Color newColor = cabinFrontSpriteRenderer.color;
         newColor.a = 0.5f;
         cabinFrontSpriteRenderer.color = newColor;
+        player.EnterCabin();
+        Debug.Log("entering cabin");
     }
 
     void exitDoor()
@@ -71,5 +75,7 @@ public class DoorController : MonoBehaviour
         Color newColor = cabinFrontSpriteRenderer.color;
         newColor.a = 1f;
         cabinFrontSpriteRenderer.color = newColor;
+        player.ExitCabin();
+        Debug.Log("Exiting cabin");
     }
 }
