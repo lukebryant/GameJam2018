@@ -43,11 +43,12 @@ public class DoorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && playerInFront)
+        if ((Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow))
+        && playerInFront)
         {
             enterDoor();
         }
-        if (Input.GetKeyDown("l") && playerInFront && inHouse)
+        if ((Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow)) && playerInFront && inHouse)
         {
             exitDoor();
         }
