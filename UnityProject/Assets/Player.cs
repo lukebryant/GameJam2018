@@ -89,6 +89,11 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Walk");
             Vector3 oldVec3 = parentTransform.localScale;
             parentTransform.localScale = new Vector3(-Mathf.Abs(oldVec3.x), oldVec3.y, oldVec3.z);
+            if (parentTransform.localPosition.x > 6.7f)
+            {
+                Vector3 oldPos = parentTransform.localPosition;
+                parentTransform.localPosition = new Vector3(-6.7f, oldPos.y, oldPos.z);
+            }
             if (speed <= 3) speed++;
         }
         else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
@@ -96,6 +101,11 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Walk");
             Vector3 oldVec3 = parentTransform.localScale;
             parentTransform.localScale = new Vector3(Mathf.Abs(oldVec3.x), oldVec3.y, oldVec3.z);
+            if (parentTransform.localPosition.x < -6.7f)
+            {
+                Vector3 oldPos = parentTransform.localPosition;
+                parentTransform.localPosition = new Vector3(6.7f, oldPos.y, oldPos.z);
+            }
             if (speed >= -3) speed--;
         }
         else
