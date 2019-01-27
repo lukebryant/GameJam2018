@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         if (sleeping)
         {
             animator.SetTrigger("Idle");
-            if (Input.GetKey(KeyCode.W)) {
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
                 Debug.Log("waking up");
                 parentTransform.localPosition = preSleepPosition;
                 parentTransform.localEulerAngles = new Vector3(0, 0, 0);
