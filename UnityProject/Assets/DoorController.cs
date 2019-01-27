@@ -7,6 +7,8 @@ public class DoorController : MonoBehaviour
     private bool playerInFront = false;
     private bool inHouse = false;
     private SpriteRenderer cabinFrontSpriteRenderer;
+    private SpriteRenderer cabinBackSpriteRenderer;
+
     private BoxCollider2D cabinLeftSideCollider;
     private BoxCollider2D cabinRightSideCollider;
     public Player player;
@@ -35,6 +37,7 @@ public class DoorController : MonoBehaviour
         cabinFrontSpriteRenderer = GameObject.Find("/Cabin/Front").GetComponent<SpriteRenderer>();
         cabinLeftSideCollider = GameObject.Find("/Cabin/LeftSide").GetComponent<BoxCollider2D>();
         cabinRightSideCollider = GameObject.Find("/Cabin/RightSide").GetComponent<BoxCollider2D>();
+        cabinBackSpriteRenderer = GameObject.Find("/Cabin/Back").GetComponent<SpriteRenderer>();
         cabinLeftSideCollider.enabled = false;
         cabinRightSideCollider.enabled = false;
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -58,6 +61,7 @@ public class DoorController : MonoBehaviour
     {
         inHouse = true;
         cabinFrontSpriteRenderer.sortingLayerName = "sea";
+        cabinBackSpriteRenderer.sortingLayerName = "cabin back";
         cabinLeftSideCollider.enabled = true;
         cabinRightSideCollider.enabled = true;
         Color newColor = cabinFrontSpriteRenderer.color;
@@ -71,6 +75,7 @@ public class DoorController : MonoBehaviour
     {
         inHouse = false;
         cabinFrontSpriteRenderer.sortingLayerName = "cabin front";
+        cabinBackSpriteRenderer.sortingLayerName = "backstage";
         cabinLeftSideCollider.enabled = false;
         cabinRightSideCollider.enabled = false;
         Color newColor = cabinFrontSpriteRenderer.color;
