@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     Animator animator;
     private bool walking = false;
     private bool inOcean = false;
+    private bool inCabin = false;
 
     void Start()
     {
@@ -37,6 +38,14 @@ public class Player : MonoBehaviour
 
     }
 
+    public void EnterCabin()
+    {
+        inCabin = true;
+    }
+    public void ExitCabin()
+    {
+        inCabin = false;
+    }
     public void sleep()
     {
         Debug.Log("sleeping");
